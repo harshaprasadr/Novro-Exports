@@ -1,0 +1,13 @@
+[build]
+  publish = "."
+  command = ""
+  functions = "netlify/functions"
+
+[build.environment]
+  SECRETS_SCAN_OMIT_PATHS = ".env,.env.example"
+  SECRETS_SCAN_OMIT_KEYS = "SMTP_HOST,SMTP_PORT,SMTP_SECURE,SMTP_USER,SMTP_PASS,TO_EMAIL,PORT"
+
+[[redirects]]
+  from = "/api/send-email"
+  to = "/.netlify/functions/send-email"
+  status = 200
